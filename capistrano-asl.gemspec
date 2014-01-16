@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "capistrano-watchdog"
-  s.version = "0.0.28"
+  s.name = "capistrano-asl"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gunnar Marten"]
   s.date = "2014-01-16"
-  s.description = "Ywatchdog deployment recipes for Capistrano"
+  s.description = "asl deployment recipes for Capistrano"
   s.email = "gunnar.marten@artcom.de"
   s.extra_rdoc_files = [
     "README.md"
@@ -21,14 +21,16 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "capistrano-watchdog.gemspec",
-    "lib/artcom/capistrano-watchdog.rb",
-    "lib/artcom/watchdog.rb"
+    "capistrano-asl.gemspec",
+    "lib/artcom/asl.rb",
+    "lib/artcom/capistrano-asl.rb",
+    "lib/artcom/common.rb",
+    "lib/artcom/linux.rb"
   ]
-  s.homepage = "https://github.com/artcom/capistrano-watchdog"
+  s.homepage = "https://github.com/artcom/capistrano-asl"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
-  s.summary = "watchdog deployment recipes for Capistrano"
+  s.summary = "asl deployment recipes for Capistrano"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
