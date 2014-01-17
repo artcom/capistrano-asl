@@ -42,9 +42,22 @@ configuration.load do
     # --------------------------------------------
 
     desc "Copy asl"
-    task :copy_lib, :roles => :app do
-      top.upload("asl.tar.gz", "#{asl_install_dir}", :via=> :scp)
-      run "tar -C '#{asl_install_dir}' -xzvf '#{asl_install_dir}/asl.tar.gz'"
+    task :copy_package, :roles => :app do
+      run "mkdir -p #{asl_install_dir}/asl"
+      delete_artifact = false
+      version = fetch(:asl_version, "1.0.9")
+      target_platform = fetch(:asl_target_platform, "Linux-x86_64")
+      package = fetch(:asl_package, "ASL-#{version}-#{target_platform}.tar.gz")
+      if not File.file?(package)
+        run_locally "scp artifacts@artifacts:pro60/releases/#{package} #{package}"
+        delete_artifact = true
+      end
+      top.upload(package, "#{asl_install_dir}", :via=> :scp)
+      if delete_artifact
+        run_locally "rm -rf #{package}"
+      end
+      run "tar -C '#{asl_install_dir}/asl' --exclude include --strip-components 1 -xzvf '#{asl_install_dir}/#{package}'"
+      run "rm #{asl_install_dir}/#{package}"
     end
   end
 end
