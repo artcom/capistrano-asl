@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
     "Gemfile",
     "README.md",
     "Rakefile",
-    "VERSION",
     "capistrano-asl.gemspec",
     "lib/artcom/asl.rb",
     "lib/artcom/capistrano-asl.rb",
