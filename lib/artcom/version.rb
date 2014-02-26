@@ -8,5 +8,3 @@ class CapistranoASL
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
   end
 end
-    end
-end
