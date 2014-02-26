@@ -16,7 +16,7 @@ begin
     gemspec.add_dependency('capistrano-ext')
     gemspec.add_dependency('railsless-deploy')
 
-    gem.version = CapistranoASL::Version::STRING
+    gemspec.version = CapistranoASL::Version::STRING
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
