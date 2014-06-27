@@ -58,6 +58,7 @@ configuration.load do
       end
       run "tar -C '#{asl_install_dir}/asl' --exclude include --strip-components 1 -xzvf '#{asl_install_dir}/#{package}'"
       run "rm #{asl_install_dir}/#{package}"
+      sudo "chown -R #{runner}:#{runner} #{deploy_to}"            
     end
   end
 end
